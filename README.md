@@ -11,7 +11,7 @@ In order to use the Canvas REST API, you will need an OAuth2 token. You can gene
 
 ## post_weekly_scores
 
-* python3 post_weekly_scores
+* python3 post_weekly_scores.py
 * reads lecture scores, aggregates into weekly grades, posts to canvas
 * by default variable ACTUALLY_POST is false, and found grades are just printed
 * you **must** double check that WEEK_RANGE is only for weeks that are not yet posted, else duplicates may be made (todo, prevent this from possible happening)
