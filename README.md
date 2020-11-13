@@ -17,3 +17,7 @@ In order to use the Canvas REST API, you will need an OAuth2 token. You can gene
 * you **must** double check that WEEK_RANGE is only for weeks that are not yet posted, else duplicates may be made (todo, prevent this from possible happening)
 * required work: insert your Canvas API key, edit Lectures dict, WEEK_RANGE and ACTUALLY_POST appropriately
 
+## run_tests
+
+* Requires downloading GitHub Classroom assignment repos via Classroom Assistant, download here https://classroom.github.com/assistant
+* Put run_tests.sh in same directory as student submission folders, run ./run_tests.sh > test_output.txt
