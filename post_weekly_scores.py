@@ -11,7 +11,7 @@ API_KEY = ""
 canvas = Canvas(API_URL, API_KEY)
 
 WEEK_RANGE = range(6, 8)
-ACTUALLY_POST=True
+ACTUALLY_POST=False
 
 course = canvas.get_course(20583)
 fmt ='%Y-%m-%dT%H:%M:%SZ'
