@@ -10,9 +10,8 @@ API_KEY = ""
 
 canvas = Canvas(API_URL, API_KEY)
 
-WEEK_RANGE = range(6, 8)
+WEEK_RANGE = range(8,10)
 ACTUALLY_POST=False
-
 course = canvas.get_course(20583)
 fmt ='%Y-%m-%dT%H:%M:%SZ'
 lectures = {
@@ -32,8 +31,13 @@ lectures = {
   "Lecture 17": datetime.datetime.strptime("2020-10-27T15:00:00Z", fmt),
   "Lecture 18": datetime.datetime.strptime("2020-10-30T01:00:00Z", fmt),
   "Lecture 20": datetime.datetime.strptime("2020-11-06T02:00:00Z", fmt),
-  "Lecture 21": datetime.datetime.strptime("2020-11-10T16:00:00Z", fmt)
+  "Lecture 21": datetime.datetime.strptime("2020-11-10T16:00:00Z", fmt),
+  "Lecture 22": datetime.datetime.strptime("2020-11-16T2:00:00Z", fmt),
+  "Lecture 23": datetime.datetime.strptime("2020-11-20T2:00:00Z", fmt),
+  "Lecture 24": datetime.datetime.strptime("2020-11-24T16:00:00Z", fmt),
+  "Lecture 25": datetime.datetime.strptime("2020-12-01T16:00:00Z", fmt)
 }
+
 
 weekly_lectures =[
   ["4", "5"],
@@ -42,21 +46,23 @@ weekly_lectures =[
   ["10", "11"],
   ["12", "13"],
   ["14", "15"],
-  ["16", "17"], 
-  ["18", "20"]
-] 
+  ["16", "17"],
+  ["18", "20"],
+  ["21", "22"],
+  ["23", "24"]
+]
 
 if(ACTUALLY_POST):
   for week in WEEK_RANGE:
     new_assignment = course.create_assignment({
         'name': 'Week '+str(week)+' Lecture Quizzes',
-        'points_possible': 10, 
+        'points_possible': 10,
         'published': True})
 
 users = course.get_users(enrollment_type=['student'])
 
 for user in users:
-  user_grades = {}  
+  user_grades = {}
   assignments = user.get_assignments(course)
   #First collect all grades, times into user_grades
   for assignment in assignments:
@@ -79,7 +85,7 @@ for user in users:
 
     week_grade = 0
     if(did_one_in_lec and total_score>=10):
-      week_grade=10  
+      week_grade=10
     elif(total_score>0):
       week_grade=5
     print(user.name + " week "+str(week)+ " grade ", week_grade)
@@ -88,4 +94,3 @@ for user in users:
         if(assignment.name == 'Week '+str(week)+' Lecture Quizzes'):
           sub = assignment.get_submission(user)
           sub.edit(submission={"posted_grade":week_grade})
-      

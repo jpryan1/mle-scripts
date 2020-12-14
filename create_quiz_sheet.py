@@ -29,12 +29,16 @@ lectures = {
   "Lecture 17": datetime.datetime.strptime("2020-10-27T15:00:00Z", fmt),
   "Lecture 18": datetime.datetime.strptime("2020-10-30T01:00:00Z", fmt),
   "Lecture 20": datetime.datetime.strptime("2020-11-06T02:00:00Z", fmt),
-  "Lecture 21": datetime.datetime.strptime("2020-11-10T16:00:00Z", fmt)
+  "Lecture 21": datetime.datetime.strptime("2020-11-10T16:00:00Z", fmt),
+  "Lecture 22": datetime.datetime.strptime("2020-11-16T2:00:00Z", fmt),
+  "Lecture 23": datetime.datetime.strptime("2020-11-20T2:00:00Z", fmt),
+  "Lecture 24": datetime.datetime.strptime("2020-11-24T16:00:00Z", fmt),
+  "Lecture 25": datetime.datetime.strptime("2020-12-01T16:00:00Z", fmt)
 }
 
 users = course.get_users(enrollment_type=['student'])
 for user in users:
-  user_grades = {}  
+  user_grades = {}
   assignments = user.get_assignments(course)
 
   #First collect all grades, times into user_grades
