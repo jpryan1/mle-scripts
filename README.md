@@ -21,3 +21,9 @@ In order to use the Canvas REST API, you will need an OAuth2 token. You can gene
 
 * Requires downloading GitHub Classroom assignment repos via Classroom Assistant, download here https://classroom.github.com/assistant
 * Put run_tests.sh in same directory as student submission folders, run ./run_tests.sh > test_output.txt
+
+## get_all_scores
+
+* python3 get_all_scores.py
+* outputs csv with rows as students and columns as all grades pulled from canvas, plus comments when available
+* required work: insert your Canvas API key, edit output file appropriately
